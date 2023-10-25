@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week11CSV.MainPage"
+             
+             >
+
+    <StackLayout>
+        <Label x:Name="changer"></Label>
+        
+        <Label BackgroundColor="DarkGoldenrod" HorizontalTextAlignment="Center" FontSize="50">CSV LIST DATA EXAMPLE</Label>
+        <!--<Button Text="Click to fill list"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked" />-->
+        <ListView x:Name="PersonView"
+            ItemsSource="{Binding Person}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="2" ColumnDefinitions="10*,25*,15*,25*,25*" RowDefinitions="1*,1*">
+
+                            <Label BackgroundColor="DarkSlateGray" TextColor="Honeydew"
+                                  HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   Text="{Binding id}" FontAttributes="Italic,Bold" FontSize="20"/>
+                            <Label BackgroundColor="Transparent" Grid.Column="1"  Text="{Binding name}" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"/>
+                            <Label BackgroundColor="Transparent" Grid.Column="2"  Text="{Binding age}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"/>
+                            <Label Background="Transparent" Grid.Column="3"  Text="{Binding gender}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"/>
+                            <Label BackgroundColor="Transparent" Grid.Column="4" Text="{Binding birthdayYear}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="18"/>
+                            <!--<Image Source="person.png" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center"></Image>-->
+                            <Button Clicked="Button_Clicked" Grid.Column="3" Grid.Row="1" Text="Details" BackgroundColor="DarkSlateGray" TextColor="White" BorderColor="DarkViolet" BorderWidth="3"></Button>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
